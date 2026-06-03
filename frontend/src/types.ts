@@ -1,4 +1,13 @@
-export type RunStatus = "idle" | "running" | "completed" | "failed";
+export type RunStatus =
+  | "idle"
+  | "loading"
+  | "running"
+  | "succeeded"
+  | "stuck"
+  | "step_cap"
+  | "cost_cap"
+  | "timeout"
+  | "error";
 
 export type PastRun = {
   id: string;

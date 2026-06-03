@@ -6,9 +6,14 @@ type StatusBannerProps = {
 
 const STATUS_LABELS: Record<RunStatus, string> = {
   idle: "No active run",
+  loading: "Loading run…",
   running: "Run in progress",
-  completed: "Run completed",
-  failed: "Run failed",
+  succeeded: "Succeeded",
+  stuck: "Stuck",
+  step_cap: "Step limit reached",
+  cost_cap: "Cost limit reached",
+  timeout: "Timed out",
+  error: "Error",
 };
 
 export function StatusBanner({ status }: StatusBannerProps) {
