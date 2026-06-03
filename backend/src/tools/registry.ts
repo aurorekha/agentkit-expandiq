@@ -42,7 +42,7 @@ function asString(value: unknown, fallback = ""): string {
 const searchDocs: Tool = {
   name: "search_docs",
   description: "Search internal documentation by query string.",
-  keywords: ["docs", "documentation", "search", "knowledge"],
+  keywords: ["docs", "documentation", "search", "knowledge", "stuck"],
   idempotent: true,
   parallelSafe: true,
   execute(args) {
