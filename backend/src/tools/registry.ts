@@ -19,6 +19,10 @@ export type Tool = {
 
 const melbourneWeatherAttempts = new Set<string>();
 
+export function resetRegistryTestState(): void {
+  melbourneWeatherAttempts.clear();
+}
+
 function success(data: unknown): ToolResult {
   return { ok: true, data, error: null };
 }
@@ -140,7 +144,7 @@ const querySql: Tool = {
 const summariseText: Tool = {
   name: "summarise_text",
   description: "Summarise a block of text into a short bullet list.",
-  keywords: ["summary", "summarise", "condense", "tldr"],
+  keywords: ["summary", "summarise", "condense", "tldr", "docs", "policy"],
   idempotent: true,
   parallelSafe: true,
   execute(args) {

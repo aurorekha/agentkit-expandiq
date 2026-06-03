@@ -43,7 +43,7 @@ function isStuck(steps: Step[]): boolean {
   );
 }
 
-function executeToolWithRetry(
+export function executeToolWithRetry(
   toolName: string,
   args: Record<string, unknown>,
 ): ToolResult {

@@ -116,6 +116,24 @@ export function initDb(): void {
   applySchema(db);
 }
 
+/** In-memory (default) or file-backed DB for tests. Does not use agentkit.db. */
+export function initTestDb(databasePath = ":memory:"): void {
+  closeDb();
+  if (databasePath !== ":memory:") {
+    mkdirSync(dirname(databasePath), { recursive: true });
+  }
+  db = new Database(databasePath);
+  db.pragma("journal_mode = WAL");
+  applySchema(db);
+}
+
+export function closeDb(): void {
+  if (db) {
+    db.close();
+    db = null;
+  }
+}
+
 export function createRun(goal: string): Run {
   const database = getDatabase();
   const id = crypto.randomUUID();
