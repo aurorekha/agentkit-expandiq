@@ -1,4 +1,7 @@
 import Fastify from "fastify";
+import { initDb } from "./db/client.js";
+
+initDb();
 
 const PORT = Number(process.env.PORT ?? 5173);
 const HOST = process.env.HOST ?? "0.0.0.0";
